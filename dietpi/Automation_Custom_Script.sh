@@ -78,18 +78,18 @@ if [ "$GET_STD_CTS" == "yes" ]
   mkdir -p /var/lib/vz/template
   mkdir -p /var/lib/vz/template/cache
   cd /var/lib/vz/template/cache
-  BASEURL='https://uk.lxd.images.canonical.com/images'
+  BASEURL='https://mirrors.tuna.tsinghua.edu.cn/lxc-images/images'
   ARCHITEC='arm64'
   ### Debian 11 Arm 64 - CT ROOTFS ###
   DISTNAME=debian
   CODENAME=bullseye
   NEWESTBUILD=$(curl -s $BASEURL/$DISTNAME/$CODENAME/$ARCHITEC/default/ | grep '<td>' | tail -n 1 | cut -d '='  -f 5 | cut -d '/' -f 2)
   wget -q $BASEURL/$DISTNAME/$CODENAME/$ARCHITEC/default/$NEWESTBUILD/rootfs.tar.xz -O Debian11$ARCHITEC-std-$NEWESTBUILD.tar.xz
-  ### Ubuntu 20.04 LTS Arm 64 - CT ROOTFS ###
+  ### Ubuntu 22.04 LTS Arm 64 - CT ROOTFS ###
   DISTNAME=ubuntu
-  CODENAME=focal
+  CODENAME=jammy
   NEWESTBUILD=$(curl $BASEURL/$DISTNAME/$CODENAME/$ARCHITEC/default/ | grep '<td>' | tail -n 1 | cut -d '='  -f 5 | cut -d '/' -f 2)
-  wget -q $BASEURL/$DISTNAME/$CODENAME/$ARCHITEC/default/$NEWESTBUILD/rootfs.tar.xz -O Ubuntu20$ARCHITEC-std-$NEWESTBUILD.tar.xz
+  wget -q $BASEURL/$DISTNAME/$CODENAME/$ARCHITEC/default/$NEWESTBUILD/rootfs.tar.xz -O Ubuntu22$ARCHITEC-std-$NEWESTBUILD.tar.xz
 fi
 if [ "$GET_STD_ISO" == "yes" ]
  then
@@ -97,14 +97,14 @@ if [ "$GET_STD_ISO" == "yes" ]
   mkdir -p /var/lib/vz/template
   mkdir -p /var/lib/vz/template/iso
   cd /var/lib/vz/template/iso
-  wget -q https://cdimage.debian.org/debian-cd/current/arm64/iso-cd/debian-11.1.0-arm64-netinst.iso	# debian arm64 net installer iso
-  wget -q https://cdimage.ubuntu.com/releases/20.04/release/ubuntu-20.04.3-live-server-arm64.iso   	# ubuntu arm64 server iso
+  wget -q https://mirrors.bfsu.edu.cn/debian-cd/11.3.0/arm64/iso-cd/debian-11.3.0-arm64-netinst.iso	# debian arm64 net installer iso
+  wget -q https://mirrors.bfsu.edu.cn/ubuntu-cdimage/releases/22.04/release//ubuntu-22.04-live-server-arm64.iso   	# ubuntu arm64 server iso
 fi
 
 #### ADD SOURCE PIMOX7 + KEY & UPDATE & INSTALL RPI-KERNEL-HEADERS & ZFS-DKMS ############################################################
 printf "# PiMox7 Development Repo
-deb https://raw.githubusercontent.com/pimox/pimox7/master/ dev/ \n" > /etc/apt/sources.list.d/pimox.list
-curl -s https://raw.githubusercontent.com/pimox/pimox7/master/KEY.gpg | apt-key add -
+deb https://raw.fastgit.org/pimox/pimox7/master/ dev/ \n" > /etc/apt/sources.list.d/pimox.list
+curl -s https://raw.fastgit.org/pimox/pimox7/master/KEY.gpg | apt-key add -
 apt update && apt install -y raspberrypi-kernel-headers 
 DEBIAN_FRONTEND=noninteractive apt install -y -o Dpkg::Options::="--force-confdef" zfs-dkms
 

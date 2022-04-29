@@ -10,13 +10,13 @@ AUTO_SETUP_NET_STATIC_DNS=192.168.178.1
 
 #### ADJUST LOCALES AND COUNTRY TO MATCH YOUR LOCATION ####
 #### Locale eg : "en_GB.UTF-8" / "de_DE.UTF-8" | One entry and UTF-8 ONLY!
-AUTO_SETUP_LOCALE=en_GB.UTF-8
+AUTO_SETUP_LOCALE=en_US.UTF-8
 #### Keyboard Layout eg : "gb" / "us" / "de" / "fr"
-AUTO_SETUP_KEYBOARD_LAYOUT=de
+AUTO_SETUP_KEYBOARD_LAYOUT=us
 #### WiFi country code eg: GB US DE JP): https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
-AUTO_SETUP_NET_WIFI_COUNTRY_CODE=DE
+AUTO_SETUP_NET_WIFI_COUNTRY_CODE=US
 #### Timezone eg : "Europe/London" https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-AUTO_SETUP_TIMEZONE=Europe/Berlin
+AUTO_SETUP_TIMEZONE=Asia/Shanghai
 
 #### CHANGE YOUR DEFAULT PASSWD #### 
 AUTO_SETUP_GLOBAL_PASSWORD=raspberry
@@ -215,14 +215,14 @@ CONFIG_PREFER_IPV4=1
 
 # APT mirrors which are applied to /etc/apt/sources.list | Values here will also be applied during 1st run setup
 # - Raspbian: https://www.raspbian.org/RaspbianMirrors
-CONFIG_APT_RASPBIAN_MIRROR=http://raspbian.raspberrypi.org/raspbian/
+CONFIG_APT_RASPBIAN_MIRROR=https://mirrors.bfsu.edu.cn/raspberrypi/
 # - Debian: https://www.debian.org/mirror/official#list
-CONFIG_APT_DEBIAN_MIRROR=https://deb.debian.org/debian/
+CONFIG_APT_DEBIAN_MIRROR=https://mirrors.bfsu.edu.cn/debian/
 
 # NTP mirror, applied to /etc/ntp.conf
 # - For a full list, please see: https://www.ntppool.org/zone/@
 # - Please remove the initial integer and full stop from the value (removing "0."), eg: debian.pool.ntp.org
-CONFIG_NTP_MIRROR=debian.pool.ntp.org
+CONFIG_NTP_MIRROR=ntp.tencent.com
 
 #------------------------------------------------------------------------------------------------------
 ##### DietPi-Software settings #####
