@@ -215,7 +215,7 @@ CONFIG_PREFER_IPV4=1
 
 # APT mirrors which are applied to /etc/apt/sources.list | Values here will also be applied during 1st run setup
 # - Raspbian: https://www.raspbian.org/RaspbianMirrors
-CONFIG_APT_RASPBIAN_MIRROR=https://mirrors.bfsu.edu.cn/raspberrypi/
+CONFIG_APT_RASPBIAN_MIRROR=https://mirrors.bfsu.edu.cn/raspbian/raspbian/
 # - Debian: https://www.debian.org/mirror/official#list
 CONFIG_APT_DEBIAN_MIRROR=https://mirrors.bfsu.edu.cn/debian/
 
